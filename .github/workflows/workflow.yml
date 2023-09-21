@@ -6,8 +6,8 @@ jobs:
     name: workflow
     runs-on: ubuntu-22.04
     steps:
-      - name: action
-        uses: ./.github/actions/create-codedeploy-action
+      - use: actions/checkout@v3
+      - uses: ./.github/actions/create-codedeploy-action
         with:
           name: my-app
           version: 1.0.0
