@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: action
-        uses: ./.github/actions/create-codedeploy-action/action.yml
+        uses: ./.github/actions/create-codedeploy-action
         with:
           name: my-app
           version: 1.0.0

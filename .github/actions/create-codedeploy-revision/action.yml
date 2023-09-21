@@ -43,4 +43,8 @@ runs:
                 timeout: 300
                 runas: root
         EOF >> appspec.yml
+        echo "toto"
+        ls -la
+        echo "tata"
+        cat appspec.yml
       shell: bash
