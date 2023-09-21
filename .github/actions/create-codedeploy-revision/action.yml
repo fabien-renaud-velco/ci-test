@@ -11,7 +11,7 @@ runs:
   using: "composite"
   steps:
     - run: |
-        echo << EOF
+        echo "
           version: ${{ inputs.version }}
           os: linux
           files:
@@ -42,7 +42,7 @@ runs:
               - location: scripts/05-validate-service.sh
                 timeout: 300
                 runas: root
-        EOF >> appspec.yml
+        " >> appspec.yml
         echo "toto"
         ls -la
         echo "tata"
