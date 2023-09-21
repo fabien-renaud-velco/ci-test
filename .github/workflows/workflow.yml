@@ -1,0 +1,13 @@
+name: CI TEST
+on:
+  push:
+jobs:
+  workflow:
+    name: workflow
+    runs-on: ubuntu-22.04
+    steps:
+      - name: action
+        uses: .github/actions/create-codedeploy-action/action.yml
+        with:
+          name: my-app
+          version: 1.0.0
