@@ -7,7 +7,13 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+        with:
+          repository: VelcoTech/github-workflows
+          path: github-workflows
+      - run: ls -la
       - uses: ./.github/actions/create-codedeploy-revision
         with:
           name: my-app
           version: 1.0.0
+      - run: ls -la
