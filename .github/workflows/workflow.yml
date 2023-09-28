@@ -2,11 +2,11 @@ name: CI TEST
 on:
   push:
     inputs:
-      service-name:
-        description: '(Optional) Service name'
-        default: ${{ (startsWith('velco-api', 'velco-') || startsWith('velco-api', 'valeo-') || startsWith('velco-api', 'veligo-') || startsWith('velco-api', 'mfc-')) && 'velco-api' || ('velco-' && 'velco-api') }}
-        required: false
-        type: string
+#      service-name:
+#        description: '(Optional) Service name'
+#        default: ${{ (startsWith('velco-api', 'velco-') || startsWith('velco-api', 'valeo-') || startsWith('velco-api', 'veligo-') || startsWith('velco-api', 'mfc-')) && 'velco-api' || ('velco-' && 'velco-api') }}
+#        required: false
+#        type: string
 #      service-name-bis:
 #        description: '(Optional) Service name'
 #        default: ${{ (startsWith('bike-api', 'velco-') || startsWith('bike-api', 'valeo-') || startsWith('bike-api', 'veligo-') || startsWith('bike-api', 'mfc-')) && 'bike-api' || ('velco-' && 'bike-api') }}
@@ -17,5 +17,6 @@ jobs:
     name: workflow
     runs-on: ubuntu-22.04
     steps:
-      - run: echo ${{ inputs.service-name }}
+      - run: echo ${{ contains('hello', ['velco-', 'veligo-', 'mfc']) }}
+      - run: echo ${{ contains('velco-api', ['velco-', 'veligo-', 'mfc']) }}
 #      - run: echo ${{ inputs.service-name-bis }}
