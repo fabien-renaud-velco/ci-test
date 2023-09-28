@@ -8,4 +8,4 @@ jobs:
     steps:
       - run: echo ${{ startsWith('Hello', 'He') }}
       - run: echo ${{ startsWith('Hello', 'he') }}
-      - run: echo ${{ startsWith('Hello', ['He', 'he']) }}
+      - run: echo ${{ startsWith('Hello', 'He', 'he') }}
