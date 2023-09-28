@@ -2,12 +2,14 @@ name: CI TEST
 on:
   push:
     inputs:
-      application-name:
-        default: 'velco-api'
-        type: string
       service-name:
         description: '(Optional) Service name'
-        default: ${{ (startsWith(inputs.application-name, 'velco-') || startsWith(inputs.application-name, 'valeo-') || startsWith(inputs.application-name, 'veligo-') || startsWith(inputs.application-name, 'mfc-')) && inputs.application-name || ('velco-' && inputs.application-name) }}
+        default: ${{ (startsWith('velco-api', 'velco-') || startsWith('velco-api', 'valeo-') || startsWith('velco-api', 'veligo-') || startsWith('velco-api', 'mfc-')) && 'velco-api' || ('velco-' && 'velco-api') }}
+        required: false
+        type: string
+      service-name-bis:
+        description: '(Optional) Service name'
+        default: ${{ (startsWith('bike-api', 'velco-') || startsWith('bike-api', 'valeo-') || startsWith('bike-api', 'veligo-') || startsWith('bike-api', 'mfc-')) && 'bike-api' || ('velco-' && 'bike-api') }}
         required: false
         type: string
 jobs:
@@ -15,5 +17,5 @@ jobs:
     name: workflow
     runs-on: ubuntu-22.04
     steps:
-      - run: echo ${{ inputs.application-name }}
       - run: echo ${{ inputs.service-name }}
+      - run: echo ${{ inputs.service-name-bis }}
