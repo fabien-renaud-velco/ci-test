@@ -1,10 +1,19 @@
 name: CI TEST
 on:
   push:
+    inputs:
+      application-name:
+        default: 'velco-api'
+        type: string
+      service-name:
+        description: '(Optional) Service name'
+        default: ${{ (startsWith(inputs.application-name, 'velco-') || startsWith(inputs.application-name, 'valeo-') || startsWith(inputs.application-name, 'veligo-') || startsWith(inputs.application-name, 'mfc-')) && inputs.application-name || ('velco-' && inputs.application-name) }}
+        required: false
+        type: string
 jobs:
   workflow:
     name: workflow
     runs-on: ubuntu-22.04
     steps:
-      - run: echo ${{ (startsWith('Hello', 'to') || startsWith('Hello', 'He')) }}
-      - run: echo ${{ (startsWith('Hello', 'H') && startsWith('Hello', 'He')) }}
+      - run: echo ${{ inputs.application-name }}
+      - run: echo ${{ inputs.service-name }}
