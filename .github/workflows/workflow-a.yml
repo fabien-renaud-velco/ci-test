@@ -3,5 +3,5 @@ on:
   push:
 jobs:
   workflow:
-    name: VERY LONG NAMES AAAAA
+    name: A
     uses: ./.github/workflows/workflow-b.yml

@@ -3,5 +3,5 @@ on:
   workflow_call:
 jobs:
   workflow:
-    name: VERY LONG NAMES CCCCC
+    name: C
     uses: ./.github/workflows/workflow-d.yml
