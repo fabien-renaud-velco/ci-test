@@ -1,7 +1,7 @@
 name: CI TEST
 on:
-  push:
-    inputs:
+  push: toto
+#    inputs:
 #      service-name:
 #        description: '(Optional) Service name'
 #        default: ${{ (startsWith('velco-api', 'velco-') || startsWith('velco-api', 'valeo-') || startsWith('velco-api', 'veligo-') || startsWith('velco-api', 'mfc-')) && 'velco-api' || ('velco-' && 'velco-api') }}

@@ -1,0 +1,7 @@
+name: WORKFLOW A
+on:
+  push:
+jobs:
+  workflow:
+    name: A
+    uses: ./.github/workflows/workflow-b.yml@master

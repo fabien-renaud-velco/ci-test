@@ -1,0 +1,7 @@
+name: WORKFLOW B
+on:
+  workflow_call:
+jobs:
+  workflow:
+    name: B
+    uses: ./.github/workflows/workflow-c.yml@master
