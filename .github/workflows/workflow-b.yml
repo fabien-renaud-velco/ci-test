@@ -4,4 +4,4 @@ on:
 jobs:
   workflow:
     name: B
-    uses: ./.github/workflows/workflow-c.yml@master
+    uses: ./.github/workflows/workflow-c.yml
