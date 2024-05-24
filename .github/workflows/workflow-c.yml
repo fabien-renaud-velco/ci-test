@@ -4,7 +4,4 @@ on:
 jobs:
   workflow:
     name: VERY LONG NAMES CCCCC
-    runs-on: ubuntu-22.04
-    steps:
-      - name: C
-        run: echo hello
+    uses: ./.github/workflows/workflow-d.yml

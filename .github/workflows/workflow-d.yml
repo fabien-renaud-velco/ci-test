@@ -1,0 +1,10 @@
+name: WORKFLOW D
+on:
+  workflow_call:
+jobs:
+  workflow:
+    name: VERY LONG NAMES DDDDD
+    runs-on: ubuntu-22.04
+    steps:
+      - name: D
+        run: echo hello
