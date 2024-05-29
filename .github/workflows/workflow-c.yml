@@ -3,4 +3,5 @@ on:
   workflow_call:
 jobs:
   workflow:
+    name:
     uses: ./.github/workflows/workflow-d.yml
