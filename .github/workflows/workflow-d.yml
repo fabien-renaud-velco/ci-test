@@ -3,7 +3,7 @@ on:
   workflow_call:
 jobs:
   workflow:
-    name: D
+    name: DDDDDDDDDDDDDD
     runs-on: ubuntu-22.04
     steps:
       - name: D

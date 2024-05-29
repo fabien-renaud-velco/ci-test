@@ -3,5 +3,5 @@ on:
   push:
 jobs:
   workflow:
-    name: A
+    name: AAAAAAAAAAA
     uses: ./.github/workflows/workflow-b.yml
