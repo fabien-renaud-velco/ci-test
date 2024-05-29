@@ -3,5 +3,4 @@ on:
   push:
 jobs:
   workflow:
-    name: 🐳
     uses: ./.github/workflows/workflow-b.yml
