@@ -14,6 +14,7 @@ jobs:
 
   job-b:
     name: Job B
+    needs: [job-a]
     runs-on: ubuntu-22.04
     steps:
       - run: echo $foo
