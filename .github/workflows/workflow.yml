@@ -10,6 +10,7 @@ jobs:
     steps:
       - run: echo ${{ env.foo }}
       - run: echo 'foo=bar' >> $GITHUB_ENV
+      - run: echo ${{ env.foo }}
 
 
   job-b:
