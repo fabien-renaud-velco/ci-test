@@ -3,7 +3,7 @@ inputs:
   application-name:
     description: 'optional'
 env:
-  APPLICATION_NAME: ${{ github.event.inputs.application-name || github.env.APPLICATION_NAME }}
+  APPLICATION_NAME: a
 runs:
   using: "composite"
   steps:
