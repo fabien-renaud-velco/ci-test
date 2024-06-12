@@ -17,4 +17,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: echo ${{ env.APPLICATION_NAME }}
-      - uses: ./.github/actions/debug@master
+      - uses: ./.github/actions/debug
