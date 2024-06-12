@@ -1,0 +1,6 @@
+name: Debug action
+runs:
+  using: "composite"
+  steps:
+    - run: echo ${{ env.APPLICATION_NAME }}
+      shell: bash

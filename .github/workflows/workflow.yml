@@ -2,20 +2,18 @@ name: CI TEST
 on:
   push:
 env:
-  foo: foo
+  APPLICATION_NAME: toto
 jobs:
   job-a:
     name: Job A
     runs-on: ubuntu-22.04
     steps:
-      - run: echo ${{ env.foo }}
-      - run: echo 'foo=bar' >> $GITHUB_ENV
-      - run: echo ${{ env.foo }}
-
+      - run: echo ${{ env.APPLICATION_NAME }}
 
   job-b:
     name: Job B
     needs: [job-a]
     runs-on: ubuntu-22.04
     steps:
-      - run: echo ${{ env.foo }}
+      - run: echo ${{ env.APPLICATION_NAME }}
+      - uses: ./.github/actions/debug@master
