@@ -8,13 +8,8 @@ jobs:
     name: Job A
     runs-on: ubuntu-22.04
     steps:
-      - run: echo ${{ env.APPLICATION_NAME }}
-
-  job-b:
-    name: Job B
-    needs: [job-a]
-    runs-on: ubuntu-22.04
-    steps:
       - uses: actions/checkout@v4
-      - run: echo ${{ env.APPLICATION_NAME }}
       - uses: ./.github/actions/debug
+      - uses: ./.github/actions/debug
+        with:
+          application-name: tata

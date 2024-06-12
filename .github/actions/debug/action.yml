@@ -1,6 +1,9 @@
 name: Debug action
+inputs:
+  application-name:
+    description: 'optional'
 runs:
   using: "composite"
   steps:
-    - run: echo ${{ env.APPLICATION_NAME }}
+    - run: echo ${{ inputs.application-name }} ${{ env.APPLICATION_NAME }}
       shell: bash
