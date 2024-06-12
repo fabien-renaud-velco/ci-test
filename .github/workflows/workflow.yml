@@ -2,7 +2,7 @@ name: CI TEST
 on:
   push:
 env:
-  APPLICATION_NAME: toto
+  APPLICATION_NAME: workflow
 jobs:
   job-a:
     name: Job A
@@ -10,6 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/debug
+      - run: echo ${{ env.APPLICATION_NAME }}
+      - uses: ./.github/actions/setup
       - uses: ./.github/actions/debug
-        with:
-          application-name: tata
+      - run: echo ${{ env.APPLICATION_NAME }}

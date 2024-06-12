@@ -1,0 +1,10 @@
+name: Setup action
+runs:
+  using: "composite"
+  steps:
+    - run: echo ${{ env.APPLICATION_NAME }}
+      shell: bash
+    - run: echo "APPLICATION_NAME=ACTION" >> $GITHUB_ENV
+      shell: bash
+    - run: echo ${{ env.APPLICATION_NAME }}
+      shell: bash
