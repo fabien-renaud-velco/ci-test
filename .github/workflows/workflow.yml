@@ -14,6 +14,8 @@ jobs:
       - run: echo "TOTO=toto" >> $GITHUB_ENV
       - run: echo ${{ env.TOTO }}
       - run: echo $GITHUB_ENV
+      - run: cat $GITHUB_ENV
+      - run: ls -l $GITHUB_ENV
   job-b:
     name: Job B
     runs-on: ubuntu-22.04
