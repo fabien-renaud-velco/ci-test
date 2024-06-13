@@ -2,5 +2,5 @@ name: Debug action
 runs:
   using: "composite"
   steps:
-    - run: echo ${{ env.APPLICATION_NAME }}
+    - run: echo ${{ secrets.CI_GITHUB_APPS_VELCO_GITHUB_AGENT_APP_ID }}
       shell: bash
