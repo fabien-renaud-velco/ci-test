@@ -11,5 +11,6 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
+      - run: echo ${{ inputs.environment }}
       - run: echo ${{ github.event.inputs.environment }}
       - uses: ./.github/actions/debug
