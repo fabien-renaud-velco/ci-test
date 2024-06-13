@@ -19,9 +19,7 @@ jobs:
       - run: echo "TITI=toto" >> $GITHUB_ENV
       - run: echo ${{ env.TOTO }}
       - id: env
-        run: echo "env=$(cat $GITHUB_ENV)" >> $GITHUB_OUTPUT
-      - id: a
-        run: echo "a=b" >> $GITHUB_OUTPUT
+        run: echo "env=$(cat $GITHUB_ENV | base64)" >> $GITHUB_OUTPUT
       - run: echo ${{ steps.env.outputs.env }}
   job-b:
     name: Job B
@@ -30,6 +28,6 @@ jobs:
     steps:
       - run: echo ${{ env.TOTO }}
       - run: echo ${{ needs.job-a.outputs.env }}
-      - run: echo ${{ needs.job-a.outputs.a }}
-      - run: ${{ needs.job-a.outputs.env }} > $GITHUB_ENV
+      - run: echo base64 | ${{ needs.job-a.outputs.env }}
+      - run: base64 | ${{ needs.job-a.outputs.env }} > $GITHUB_ENV
       - run: echo ${{ env.TOTO }}
