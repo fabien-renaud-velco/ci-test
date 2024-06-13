@@ -15,3 +15,10 @@ jobs:
       - run: echo "TOTO=toto" >> $GITHUB_ENV
       - run: echo ${{ env.TOTO }}
       - run: echo $TOTO
+  job-b:
+    name: Job A
+    runs-on: ubuntu-22.04
+    needs: [job-a]
+    steps:
+      - run: echo ${{ env.TOTO }}
+      - run: echo $TOTO
