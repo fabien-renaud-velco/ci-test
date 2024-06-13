@@ -20,7 +20,7 @@ jobs:
       - run: echo ${{ env.TOTO }}
       - id: env
         run: echo "env=$(cat $GITHUB_ENV)" >> $GITHUB_OUTPUT
-        id: a
+      - id: a
         run: echo "a=b" >> $GITHUB_OUTPUT
       - run: echo ${{ steps.env.outputs.env }}
   job-b:
