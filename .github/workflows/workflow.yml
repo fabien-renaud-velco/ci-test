@@ -9,5 +9,4 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - run: echo ${{ secrets.CI_GITHUB_APPS_VELCO_GITHUB_AGENT_APP_ID }}
-      - uses: ./.github/actions/debug
+      - uses: ./.github/actions/js
