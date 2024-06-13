@@ -3,5 +3,5 @@ on:
   push:
 jobs:
   caller:
-    - name: caller
-      uses: ./.github/workflows/workflow-b.yml
+    name: caller
+    uses: ./.github/workflows/workflow-b.yml
