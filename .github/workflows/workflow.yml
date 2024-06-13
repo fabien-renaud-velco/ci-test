@@ -26,5 +26,6 @@ jobs:
     needs: [job-a]
     steps:
       - run: echo ${{ env.TOTO }}
+      - run: echo ${{ needs.job-a.outputs.env }}
       - run: ${{ needs.job-a.outputs.env }} > $GITHUB_ENV
       - run: echo ${{ env.TOTO }}
