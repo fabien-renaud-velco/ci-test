@@ -10,6 +10,6 @@ jobs:
     name: Job A
     runs-on: ubuntu-22.04
     steps:
-      - run: echo "TOTO=toto" >>> $GITHUB_ENV
+      - run: echo "TOTO=toto" >> $GITHUB_ENV
       - run: echo ${{ env.TOTO }}
       - run: echo $TOTO
