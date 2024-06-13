@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-22.04
     outputs:
       env: ${{ steps.env.outputs.env }}
+      a: ${{ steps.a.outputs.a }}
     steps:
       - run: echo ${{ env.TOTO }}
       - run: echo "TOTO=toto" >> $GITHUB_ENV
@@ -19,6 +20,8 @@ jobs:
       - run: echo ${{ env.TOTO }}
       - id: env
         run: echo "env=$(cat $GITHUB_ENV)" >> $GITHUB_OUTPUT
+        id: a
+        run: echo "a=b" >> $GITHUB_OUTPUT
       - run: echo ${{ steps.env.outputs.env }}
   job-b:
     name: Job B
@@ -27,5 +30,6 @@ jobs:
     steps:
       - run: echo ${{ env.TOTO }}
       - run: echo ${{ needs.job-a.outputs.env }}
+      - run: echo ${{ needs.job-a.outputs.a }}
       - run: ${{ needs.job-a.outputs.env }} > $GITHUB_ENV
       - run: echo ${{ env.TOTO }}
