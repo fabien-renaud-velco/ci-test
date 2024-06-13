@@ -12,4 +12,5 @@ jobs:
     steps:
       - run: echo ${{ inputs.environment }}
       - run: echo ${{ github.event.inputs.environment }}
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/debug
