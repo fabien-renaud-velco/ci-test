@@ -1,7 +1,15 @@
 name: WORKFLOW B
 on:
   workflow_call:
+    inputs:
+      environment:
+        type: string
+        default: dev
 jobs:
-  workflow:
-    name: ㅤ
-    uses: ./.github/workflows/workflow-c.yml
+  reusable:
+    name: reusable
+    runs-on: ubuntu-22.04
+    steps:
+      - run: echo ${{ inputs.environment }}
+      - run: echo ${{ github.event.inputs.environment }}
+      - uses: ./.github/actions/debug

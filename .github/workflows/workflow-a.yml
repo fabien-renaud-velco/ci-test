@@ -2,5 +2,6 @@ name: WORKFLOW A
 on:
   push: a
 jobs:
-  workflow:
-    uses: ./.github/workflows/workflow-b.yml
+  caller:
+    - name: caller
+      uses: ./.github/workflows/workflow-b.yml
