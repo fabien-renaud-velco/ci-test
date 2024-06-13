@@ -1,12 +1,15 @@
 name: CI TEST
 on:
   push:
-env:
-  APPLICATION_NAME: workflow
+    inputs:
+      environment:
+        type: string
+        default: dev
 jobs:
   job-a:
     name: Job A
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/js
+      - run: echo ${{ github.event.inputs.environment }}
+      - uses: ./.github/actions/debug
