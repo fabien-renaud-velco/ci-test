@@ -1,6 +1,6 @@
 name: WORKFLOW A
 on:
-  push: a
+  push:
 jobs:
   caller:
     - name: caller
