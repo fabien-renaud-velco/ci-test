@@ -1,6 +1,7 @@
 name: CI TEST
 on:
   push:
+  workflow_call:
     inputs:
       turlututu:
         type: string
