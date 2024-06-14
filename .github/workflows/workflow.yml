@@ -36,6 +36,7 @@ jobs:
     steps:
       - run: echo ${{ env.TOTO }}
       - run: echo ${{ needs.job-a.outputs.env }}
+      - run: base64 --decode <<< ${{ needs.job-a.outputs.env }}
       - run: base64 --decode <<< ${{ needs.job-a.outputs.env }} | jq
       - run: base64 --decode <<< ${{ needs.job-a.outputs.env }} | jq -r 'to_entries[] | "echo \"\(.key)=\(.value)\" >> $GITHUB_ENV'
       - run: echo ${{ env.TOTO }}
