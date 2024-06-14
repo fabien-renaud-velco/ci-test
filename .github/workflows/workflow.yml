@@ -10,28 +10,34 @@ on:
         type: environment
         default: dev
 jobs:
-  job-a:
-    name: Job A
+  job:
     runs-on: ubuntu-22.04
-    outputs:
-      env: ${{ steps.env.outputs.env }}
-      a: ${{ steps.a.outputs.a }}
     steps:
-      - run: echo ${{ env.TOTO }}
-      - run: echo "TOTO=toto" >> $GITHUB_ENV
-      - run: echo "TATA=toto" >> $GITHUB_ENV
-      - run: echo "TITI=toto" >> $GITHUB_ENV
-      - id: env
-        run: echo "env=$(echo "${{ toJson(env) }}" | base64)" >> $GITHUB_OUTPUT
-      - run: echo ${{ steps.env.outputs.env }}
-  job-b:
-    name: Job B
-    runs-on: ubuntu-22.04
-    needs: [job-a]
-    steps:
-      - run: echo ${{ env.TOTO }}
-      - run: echo ${{ needs.job-a.outputs.env }}
-      - run: base64 --decode <<< ${{ needs.job-a.outputs.env }}
-      - run: fromJson($(base64 --decode <<< ${{ needs.job-a.outputs.env }}))
-      - run: fromJson($(base64 --decode <<< ${{ needs.job-a.outputs.env }})) > $GITHUB_ENV
-      - run: echo ${{ env.TOTO }}
+      # ewogIFRPVE86IHRvdG8sCiAgVEFUQTogdG90bywKICBUSVRJOiB0b3RvCn0K
+      - run: fromJSON('{"a":"b"}')
+#  job-a:
+#    name: Job A
+#    runs-on: ubuntu-22.04
+#    outputs:
+#      env: ${{ steps.env.outputs.env }}
+#      a: ${{ steps.a.outputs.a }}
+#    steps:
+#      - run: echo ${{ env.TOTO }}
+#      - run: echo "TOTO=toto" >> $GITHUB_ENV
+#      - run: echo "TATA=toto" >> $GITHUB_ENV
+#      - run: echo "TITI=toto" >> $GITHUB_ENV
+#      - id: env
+#        run: echo "env=$(echo "${{ toJson(env) }}" | base64)" >> $GITHUB_OUTPUT
+#      - run: echo ${{ steps.env.outputs.env }}
+#  job-b:
+#    name: Job B
+#    runs-on: ubuntu-22.04
+#    needs: [job-a]
+#    steps:
+#      - run: echo ${{ env.TOTO }}
+#      - run: echo ${{ needs.job-a.outputs.env }}
+#      - run: base64 --decode <<< ${{ needs.job-a.outputs.env }}
+#      - run: |
+#          base64 --decode <<< ${{ needs.job-a.outputs.env }}
+#      - run: fromJson($(base64 --decode <<< ${{ needs.job-a.outputs.env }})) > $GITHUB_ENV
+#      - run: echo ${{ env.TOTO }}
