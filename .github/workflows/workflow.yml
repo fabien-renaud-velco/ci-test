@@ -27,7 +27,7 @@ jobs:
       - run: echo "TATA=toto" >> $GITHUB_ENV
       - run: echo "TITI=toto" >> $GITHUB_ENV
       - id: env
-        run: echo "env=$(cat GITHUB_ENV | base64)" >> $GITHUB_OUTPUT
+        run: echo "env=$(cat $GITHUB_ENV | base64)" >> $GITHUB_OUTPUT
       - run: echo ${{ steps.env.outputs.env }}
   job-b:
     name: Job B
