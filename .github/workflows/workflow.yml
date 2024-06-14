@@ -17,7 +17,6 @@ jobs:
       - run: echo "TOTO=toto" >> $GITHUB_ENV
       - run: echo "TATA=toto" >> $GITHUB_ENV
       - run: echo "TITI=toto" >> $GITHUB_ENV
-      - run: $GITHUB_ENV
       - run: echo $GITHUB_ENV
       - run: cat $GITHUB_ENV
       - run: cat "$GITHUB_ENV" | base64
