@@ -27,7 +27,7 @@ jobs:
       - run: echo "TATA=toto" >> $GITHUB_ENV
       - run: echo "TITI=toto" >> $GITHUB_ENV
       - id: env
-        run: echo "env="${{ toJson(env) }}"" >> $GITHUB_OUTPUT
+        run: echo "env=$(echo "${{ toJson(env) }}" | base64)" >> $GITHUB_OUTPUT
       - run: echo ${{ steps.env.outputs.env }}
   job-b:
     name: Job B
@@ -35,9 +35,7 @@ jobs:
     needs: [job-a]
     steps:
       - run: echo ${{ env.TOTO }}
-#      - run: echo ${{ needs.job-a.outputs.env }}
-#      - run: base64 --decode <<< ${{ needs.job-a.outputs.env }}
-#      - run: |
-#          base64 --decode <<< ${{ needs.job-a.outputs.env }}
-      - run: ${{ fromJson(needs.job-a.outputs.env) }} > $GITHUB_ENV
+      - run: echo ${{ needs.job-a.outputs.env }}
+      - run: base64 --decode <<< ${{ needs.job-a.outputs.env }} | jq
+      - run: base64 --decode <<< ${{ needs.job-a.outputs.env }} | jq -r 'to_entries[] | "echo \"\(.key)=\(.value)\" >> $GITHUB_ENV'
       - run: echo ${{ env.TOTO }}
