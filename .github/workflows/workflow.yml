@@ -32,6 +32,6 @@ jobs:
       - run: echo ${{ env.TOTO }}
       - run: echo ${{ needs.job-a.outputs.env }}
       - run: base64 --decode <<< ${{ needs.job-a.outputs.env }}
-      - run: base64 --decode <<< fromJson(${{ needs.job-a.outputs.env }})
+      - run: base64 --decode <<< fromJson('${{ needs.job-a.outputs.env }}')
       - run: base64 --decode <<< fromJson(${{ needs.job-a.outputs.env }}) > $GITHUB_ENV
       - run: echo ${{ env.TOTO }}
