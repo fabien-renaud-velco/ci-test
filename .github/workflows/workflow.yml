@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       # ewogIFRPVE86IHRvdG8sCiAgVEFUQTogdG90bywKICBUSVRJOiB0b3RvCn0K
-      - run: fromJSON('{"a":"b"}')
+      - run: ${{ fromJSON('{"a":"b"}') }}
 #  job-a:
 #    name: Job A
 #    runs-on: ubuntu-22.04
