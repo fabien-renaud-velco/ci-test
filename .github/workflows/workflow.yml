@@ -21,6 +21,14 @@ jobs:
       - run: echo "TOTO=toto" >> $GITHUB_ENV
       - run: echo "TATA=toto" >> $GITHUB_ENV
       - run: echo "TITI=toto" >> $GITHUB_ENV
+      - run: |
+          echo env=$(echo "${{ toJson(env) }}" | base64)
+          echo ==================================================
+          echo 'env=$(echo "${{ toJson(env) }}" | base64)'
+          echo ==================================================
+          echo "env=$(echo "${{ toJson(env) }}" | base64)"
+          echo ==================================================
+          echo "env=$(echo \"${{ toJson(env) }}\" | base64)"
       - id: env
         run: |
           export env=$(echo "${{ toJson(env) }}" | base64)
