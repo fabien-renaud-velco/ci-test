@@ -10,36 +10,38 @@ on:
         type: environment
         default: dev
 jobs:
-#  job:
+  job:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: VelcoTech/github-action-typescript-template
+      - uses: VelcoTech/github-action-typescript-template
+        with:
+          message: 'Hello toto'
+#  job-a:
+#    name: Job A
 #    runs-on: ubuntu-22.04
+#    outputs:
+#      env: ${{ steps.env.outputs.env }}
+#      a: ${{ steps.a.outputs.a }}
 #    steps:
-#      # ewogIFRPVE86IHRvdG8sCiAgVEFUQTogdG90bywKICBUSVRJOiB0b3RvCn0K
-#      - run: ${{ fromJSON('{"a":"b"}') }}
-  job-a:
-    name: Job A
-    runs-on: ubuntu-22.04
-    outputs:
-      env: ${{ steps.env.outputs.env }}
-      a: ${{ steps.a.outputs.a }}
-    steps:
-      - run: echo ${{ env.TOTO }}
-      - run: echo "TOTO=toto" >> $GITHUB_ENV
-      - run: echo "TATA=toto" >> $GITHUB_ENV
-      - run: echo "TITI=toto" >> $GITHUB_ENV
-      - run: echo $GITHUB_ENV
-      - run: cat $GITHUB_ENV
-      - run: cat $(GITHUB_ENV)
-      - run: cat $GITHUB_ENV | base64
-      - id: env
-        run: echo "env=$(cat $GITHUB_ENV | base64)" >> $GITHUB_OUTPUT
-      - run: echo ${{ steps.env.outputs.env }}
-  job-b:
-    name: Job B
-    runs-on: ubuntu-22.04
-    needs: [job-a]
-    steps:
-      - run: echo ${{ env.TOTO }}
-      - run: echo ${{ needs.job-a.outputs.env }}
-      - run: base64 --decode <<< ${{ needs.job-a.outputs.env }}
-      - run: base64 --decode <<< ${{ needs.job-a.outputs.env }} > $GITHUB_ENV'
-      - run: echo ${{ env.TOTO }}
+#      - run: echo ${{ env.TOTO }}
+#      - run: echo "TOTO=toto" >> $GITHUB_ENV
+#      - run: echo "TATA=toto" >> $GITHUB_ENV
+#      - run: echo "TITI=toto" >> $GITHUB_ENV
+#      - run: echo $GITHUB_ENV
+#      - run: cat $GITHUB_ENV
+#      - run: cat $(GITHUB_ENV)
+#      - run: cat $GITHUB_ENV | base64
+#      - id: env
+#        run: echo "env=$(cat $GITHUB_ENV | base64)" >> $GITHUB_OUTPUT
+#      - run: echo ${{ steps.env.outputs.env }}
+#  job-b:
+#    name: Job B
+#    runs-on: ubuntu-22.04
+#    needs: [job-a]
+#    steps:
+#      - run: echo ${{ env.TOTO }}
+#      - run: echo ${{ needs.job-a.outputs.env }}
+#      - run: base64 --decode <<< ${{ needs.job-a.outputs.env }}
+#      - run: base64 --decode <<< ${{ needs.job-a.outputs.env }} > $GITHUB_ENV'
+#      - run: echo ${{ env.TOTO }}
