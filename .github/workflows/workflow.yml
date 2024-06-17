@@ -13,8 +13,8 @@ jobs:
   job:
     runs-on: ubuntu-22.04
     steps:
-      - uses: VelcoTech/github-action-typescript-template
-      - uses: VelcoTech/github-action-typescript-template
+      - uses: VelcoTech/github-action-typescript-template@master
+      - uses: VelcoTech/github-action-typescript-template@master
         with:
           message: 'Hello toto'
 #  job-a:
